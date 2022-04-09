@@ -59,3 +59,7 @@ Possible Solutions:
 Remarks:
     I have identified few issues and refered possible fixes for that. However, due to shortage of time, I did not get
     a chance to refactor the existing code.
+
+Remarks:
+I have identified few issues and referred possible fixes for that. 
+However, I did some changes for reference there is lot of messe code in repo and controller id did not change reason lack of knowledge of a product or project 

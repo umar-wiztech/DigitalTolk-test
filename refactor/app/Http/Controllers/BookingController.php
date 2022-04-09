@@ -2,11 +2,14 @@
 
 namespace DTApi\Http\Controllers;
 
+use App\Http\Requests\BookingIndexRequest;
+use App\Http\Requests\BookingStoreRequest;
 use DTApi\Models\Job;
 use DTApi\Http\Requests;
 use DTApi\Models\Distance;
 use Illuminate\Http\Request;
 use DTApi\Repository\BookingRepository;
+use App\Http\Requests\RegisterRequest;
 
 /**
  * Class BookingController
@@ -33,12 +36,13 @@ class BookingController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function index(Request $request)
+    public function index(BookingIndexRequest $request)
     {
+
+        //all validation in bookingIndexRequest
         if($user_id = $request->get('user_id')) {
 
             $response = $this->repository->getUsersJobs($user_id);
-
         }
         elseif($request->__authenticatedUser->user_type == env('ADMIN_ROLE_ID') || $request->__authenticatedUser->user_type == env('SUPERADMIN_ROLE_ID'))
         {
@@ -63,7 +67,7 @@ class BookingController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function store(Request $request)
+    public function store(BookingStoreRequest $request)
     {
         $data = $request->all();
 
